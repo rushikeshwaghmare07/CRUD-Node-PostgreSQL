@@ -1,12 +1,20 @@
 {
   "name": "crud-node-postgresql",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000C\u0000R\u0000U\u0000D\u0000-\u0000N\u0000o\u0000d\u0000e\u0000-\u0000P\u0000o\u0000s\u0000t\u0000g\u0000r\u0000e\u0000S\u0000Q\u0000L\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "pg": "^8.14.0"
+  }
 }
