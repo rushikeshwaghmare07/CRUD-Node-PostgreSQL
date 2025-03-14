@@ -4,6 +4,7 @@ import cors from "cors";
 
 import userRoutes from "./routes/user.routes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
+import createUserTable from "./data/createUserTable.js";
 
 dotenv.config();
 const app = express();
@@ -12,7 +13,10 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/users", userRoutes);
+app.use("/api/user", userRoutes);
+
+// Create user table
+createUserTable();
 
 app.use(errorHandler);
 
