@@ -5,6 +5,6 @@ import validateUser from "../middlewares/inputValidator.js";
 const router = express.Router();
 
 router.post("/", validateUser, createUser);
-router.get("/user", getAllUsers);
+router.get("/", getAllUsers);
 
 export default router;
