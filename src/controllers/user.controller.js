@@ -36,3 +36,14 @@ export const getAllUsers = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getUserById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const user = await getUserByIdService(id);
+
+    handleResponse(res, 200, "User fetched successfully", user);
+  } catch (error) {
+    next(error);
+  }
+};
