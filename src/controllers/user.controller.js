@@ -1,4 +1,4 @@
-import { createUserService, getAllUsersService, getUserByIdService, updateUserService } from "../models/user.model.js";
+import { createUserService, deleteUserService, getAllUsersService, getUserByIdService, updateUserService } from "../models/user.model.js";
 
 const handleResponse = (res, status, message, data = null) => {
   res.status(status).json({
@@ -60,6 +60,21 @@ export const updateUser = async (req, res, next) => {
     }
 
     handleResponse(res, 200, "User updated successfully", updatedUser);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export const deleteUser = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const deletedUser = await deleteUserService(id);
+
+    if (!deletedUser) {
+      return handleResponse(res, 404, "User not found");
+    } else {
+      handleResponse(res, 200, "User deleted successfully", deletedUser);
+    }
   } catch (error) {
     next(error);
   }
